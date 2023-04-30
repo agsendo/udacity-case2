@@ -51,9 +51,16 @@ function addHeadersToNav(headers) {
     let navbarElement = document.querySelector('#navbar__list');
     for (let i = 0; i < headers.length; i++) {
         let listItem = document.createElement('li');
-        listItem.innerHTML = '<a href="#'+sectionIds[i]+'" class="menu__link">'+headers[i].textContent+'</a>';
+        listItem.innerHTML = `<a href="#${sectionIds[i]}" class="menu__link">${headers[i].textContent}</a>`;
         navbarElement.appendChild(listItem);
     }
+}
+
+
+//scrolls to the element with given ID
+function scrollToSection(sectionId) {
+    let element = document.getElementById(sectionId);
+    element.scrollIntoView({behavior: 'smooth'});
 }
 
 
@@ -76,9 +83,18 @@ function buildNav() {
 
 
 // Scroll to anchor ID using scrollTO event
-
-
-
+// Add listener for each nav link
+function addListenersForNav() {
+    let navLinks = document.querySelectorAll('.menu__link');
+    for (let navLink of navLinks) {
+        let hrefValue = navLink.getAttribute("href");
+        hrefValue = hrefValue.slice(1); //removes the # from the link
+        navLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            scrollToSection(`${hrefValue}`);
+        })
+    }
+}
 
 /**
  * End Main Functions
@@ -88,6 +104,8 @@ function buildNav() {
 
 // Build menu 
 buildNav();
+
 // Scroll to section on link click
+addListenersForNav();
 
 // Set sections as active
