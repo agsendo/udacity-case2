@@ -23,6 +23,7 @@
  * 
 */
 let headers;
+let sectionIDs;
 
 /**
  * End Global Variables
@@ -76,7 +77,7 @@ function buildNav() {
 
     //get and store all of the headers-2 elements
     function getSectionHeaders() {
-    headers = document.getElementsByTagName('h2');
+        headers = document.getElementsByTagName('h2');
     }
 
     //create li element for each section header
@@ -85,7 +86,8 @@ function buildNav() {
         let navbarElement = document.querySelector('#navbar__list');
         for (let i = 0; i < headers.length; i++) {
             let listItem = document.createElement('li');
-            listItem.innerHTML = '<a href="" class="menu__link">'+headers[i].textContent+'</a>';
+            let sectionId = document.ge
+            listItem.innerHTML = '<a href="#section'+(i+1)+'" class="menu__link">'+headers[i].textContent+'</a>';
             navbarElement.appendChild(listItem);
 
             console.log(listItem.textContent);
