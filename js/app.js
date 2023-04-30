@@ -79,12 +79,13 @@ function buildNav() {
     headers = document.getElementsByTagName('h2');
     }
 
-    //create li element for each section header and add to the ul
+    //create li element for each section header
+    //and add it to the ul with its proper link
     function addHeadersToNav(headers) {
         let navbarElement = document.querySelector('#navbar__list');
         for (let i = 0; i < headers.length; i++) {
             let listItem = document.createElement('li');
-            listItem.textContent = headers[i].textContent;
+            listItem.innerHTML = '<a href="" class="menu__link">'+headers[i].textContent+'</a>';
             navbarElement.appendChild(listItem);
 
             console.log(listItem.textContent);
