@@ -92,7 +92,7 @@ function addListenersForNav() {
         navLink.addEventListener('click', function (event) {
             event.preventDefault();
             scrollToSection(`${hrefValue}`);
-        })
+        });
     }
 }
 
