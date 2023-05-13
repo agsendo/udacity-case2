@@ -8,36 +8,56 @@ body {
 }
 
 
+
 /* --- Typography general --- */
 h1 {
     font-family: 'Fira Sans', sans-serif;
     font-size: 3em;
-    margin: 2em 1rem;
+    margin: 30px;
 }
 
 @media only screen and (min-width: 35em) {
     h1 {
         font-size: 7em;
-        margin: 2em 4rem 1em;
+        margin: 1em 4rem 2em;
     }
 }
 
 h2 {
     border-bottom: 1px solid #cc1;
     font-family: 'Oxygen', Sans-Serif;
-    font-size: 3em;
+    font-size: 2em;
     color: #fff;
+    margin-left: 5%;
+}
+
+@media only screen and (min-width: 35em) {
+    h2 {
+        font-size: 3em;
+    }
 }
 
 p {
-    line-height: 1.6em;
+    line-height: 1.8em;
     color: #eee;
 }
 
 
+
 /* --- Layout rules --- */
+.main-header {
+    max-width: 90%;
+}
+
 main {
-    margin: 10vh 1em 10vh;
+    margin: 5px;
+}
+
+@media only screen and (min-width: 35em) {
+    main {
+        margin: 10vh 1em 10vh;
+        /*margin: 10% auto;*/
+    }
 }
 
 .main-header {
@@ -49,3 +69,60 @@ section {
     position: relative;
     min-height: 80vh;
 }
+
+
+
+/* --- Flexbox for sections --- */
+.section-container-flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    overflow-x: hidden;
+}
+
+@media only screen and (min-width: 1008px) {
+    .section-container-flex {
+        gap: 30px;
+        /*padding-left: 20px;
+        padding-right: 20px;*/
+    }
+}
+
+.section-container-flex img {
+    width: 100%;
+    max-width: 85vw;
+    height: auto;
+    object-fit: contain;
+}
+
+@media only screen and (min-width: 1060px) {
+    .section-container-flex img {
+        max-width: 500px;
+    }
+}
+
+.text-wrap {
+    max-width: 85vw;
+}
+
+@media only screen and (min-width: 1060px) {
+    .text-wrap {
+        max-width: 50vw;
+    }
+}
+
+
+.text-wrap strong, em {
+    font-size: 105%;
+}
+
+
+
+
+
+
+
+
+/*Display grid for medium screen
+@media(min-width:601px) and (max-width:900px) { */
