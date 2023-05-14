@@ -29,6 +29,11 @@ h2 {
     font-size: 2em;
     color: #fff;
     margin-left: 5%;
+    margin-right: 5%;
+}
+
+section:nth-of-type(even) h2 {
+    text-align: right;
 }
 
 @media only screen and (min-width: 35em) {
@@ -68,6 +73,7 @@ main {
 section {
     position: relative;
     min-height: 80vh;
+    margin-bottom: 100px;
 }
 
 
@@ -78,6 +84,10 @@ section {
     flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
+}
+
+section:nth-of-type(even) .section-container-flex {
+    flex-direction: row-reverse;
 }
 
 .box img {
