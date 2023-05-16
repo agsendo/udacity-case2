@@ -165,24 +165,3 @@ section:nth-of-type(even) .section-container-flex {
 .text-wrap strong, em {
     font-size: 110%;
 }
-
-
-
-
-
-/*figure {
-    width: inherit;
-}
-
-figcaption {
-    margin-top: 5px;
-    margin-left: 20px;
-    font-size: 0.9em;
-    color: lightgray;
-}
-*/
-
-
-
-/*Display grid for medium screen
-@media(min-width:601px) and (max-width:900px) { */
