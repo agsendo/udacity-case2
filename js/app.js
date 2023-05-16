@@ -13,6 +13,9 @@
 let headers;
 let sections;
 let sectionIds = [];
+let heightW;
+const heightWRange = 0.4;
+let listitems;
 
 
 
@@ -50,6 +53,21 @@ function scrollToSection(sectionId) {
     element.scrollIntoView({block: 'start', behavior: 'smooth'});
 }
 
+// Get and store all of the li elements from navbar
+function getNavElements() {
+    listitems = document.querySelectorAll('.navbar-menu a');
+}
+
+// Add class 'active' to navbar list item
+function setNavElementActive(element) {
+    element.classList.add("active");
+}
+
+// Remove class 'active' from navbar list item
+function setNavElementNotActive(element) {
+    element.classList.remove("active");
+}
+
 
 
 /*
@@ -62,8 +80,6 @@ function buildNav() {
     getSectionIds();
     addHeadersToNav(headers);
 }
-
-// Add class 'active' to section when near top of viewport
 
 // Scroll to anchor ID using scrollTo event
 // Add listener for each nav link
@@ -79,6 +95,9 @@ function addListenersForNav() {
     }
 }
 
+// Add class 'active' to section when near top of viewport
+
+
 
 
 /*
@@ -92,3 +111,74 @@ buildNav();
 addListenersForNav();
 
 // Set sections as active
+
+
+
+
+
+
+
+
+//
+//
+// Checks the window's height when resized
+/*function addListenerForResize() {
+    window.addEventListener('resize', function () {
+        heightW = window.innerHeight;
+    });
+}
+
+addListenerForResize();
+*/
+
+
+
+
+getNavElements();
+//
+function checkRect(sections) {
+    for (let i = 0; i < sections.length; i++) {
+        let rect = sections[i].getBoundingClientRect();
+        console.log(rect.top);
+        /*console.log(window.innerHeight * 0.5);*/
+        if ((rect.top >= 0) && (rect.top <= (window.innerHeight * 0.45)) || 
+        ((rect.bottom <= window.innerHeight) && (rect.bottom > window.innerHeight * 0.4)) ||
+        ((rect.top < 0) && (rect.bottom > window.innerHeight))) {
+            console.log(i+1);
+            setNavElementActive(listitems[i]);
+        } else {setNavElementNotActive(listitems[i])}
+    }
+}
+/*checkRect(sections);*/
+
+function addListenerForScroll() {
+    document.addEventListener('scroll', function() {
+        checkRect(sections);
+    });
+}
+
+addListenerForScroll();
+
+
+/*
+function getViewportSize() {
+   let width = window.innerWidth;
+   let height = window.innerHeight;
+   console.log(`the width is ${width} and height is ${height}`);
+}
+
+getViewportSize();
+
+
+function addListenersForNav() {
+    let navLinks = document.querySelectorAll('.menu-link');
+    for (let navLink of navLinks) {
+        let hrefValue = navLink.getAttribute("href");
+        hrefValue = hrefValue.slice(1); //removes the # from the link
+        navLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            scrollToSection(`${hrefValue}`);
+        });
+    }
+}
+*/
