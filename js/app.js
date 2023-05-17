@@ -182,3 +182,19 @@ function addListenersForNav() {
     }
 }
 */
+
+
+function addListenerForButton() {
+    document.addEventListener('scroll', function() {
+        let section1 = document.querySelector('#section1');
+        let btn = document.querySelector('.scroll-top button');
+        let rectS = section1.getBoundingClientRect();
+        if (rectS.top < 100) {
+            btn.style.visibility = "visible";
+        } else {
+            btn.style.visibility = "hidden";
+        }
+    })
+}
+
+addListenerForButton();
