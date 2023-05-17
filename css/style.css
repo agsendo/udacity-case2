@@ -47,6 +47,10 @@ p {
     color: #eee;
 }
 
+.text-wrap strong, em {
+    font-size: 110%;
+}
+
 
 
 /* --- Header and navbar styles --- */
@@ -162,11 +166,7 @@ section:nth-of-type(even) .section-container-flex {
 
 
 
-.text-wrap strong, em {
-    font-size: 110%;
-}
-
-
+/* --- Style for button 'back to top' --- */
 .scroll-top {
     position: fixed;
     /*bottom: 30px;
@@ -176,8 +176,8 @@ section:nth-of-type(even) .section-container-flex {
     z-index: 4;
 }
 
-.scroll-top button {
-    font-size: 0.8em;
+#btn-top {
+    font-size: 0.7em;
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
     padding: 0.7em;
@@ -185,10 +185,17 @@ section:nth-of-type(even) .section-container-flex {
     border-radius: 12px;
     box-shadow: rgba(211, 211, 211, 0.385) 2px 3px;
     border: none;
+    outline: none;
     visibility: hidden;
 }
 
-.scroll-top button:hover {
+@media only screen and (min-width:601px) {
+    #btn-top {
+        font-size: 0.8em;
+    }
+}
+
+#btn-top:hover {
     cursor: pointer;
     box-shadow: rgba(211, 211, 211, 0.385) 3px 5px;
     /*clickable - pushing down the button:
