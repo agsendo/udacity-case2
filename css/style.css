@@ -203,3 +203,13 @@ section:nth-of-type(even) .section-container-flex {
     bottom: -2px;
     box-shadow: none;*/
 }
+
+
+
+/* --- Footer styles --- */
+.page-footer {
+    height: auto;
+    background-color: #333;
+    text-align: center;
+    padding: 0.5em;
+}

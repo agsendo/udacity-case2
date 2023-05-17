@@ -68,15 +68,22 @@ function setNavElementNotActive(element) {
 
 // Check the position of all sections
 // Add class 'active' when section is in the viewport and remove otherwise
+// Add thicker bottom border for active section
 function checkRect(sections) {
     getNavElements();
     for (let i = 0; i < sections.length; i++) {
         let rect = sections[i].getBoundingClientRect();
+        let currentSectionHeader = sections[i].querySelector('h2');
         if ((rect.top >= 0) && (rect.top <= (window.innerHeight * 0.45)) || 
         ((rect.bottom <= window.innerHeight) && (rect.bottom > window.innerHeight * 0.4)) ||
         ((rect.top < 0) && (rect.bottom > window.innerHeight))) {
             setNavElementActive(listitems[i]);
-        } else {setNavElementNotActive(listitems[i])}
+            currentSectionHeader.style.borderBottom = '2px solid #cc1';
+        } else {
+            setNavElementNotActive(listitems[i]);
+            currentSectionHeader.style.borderBottom = '1px solid #cc1';
+
+        }
     }
 }
 
